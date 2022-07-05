@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  background-color: black;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+homepage-component
+  > body
+  > section
+  > carousel.carousel
+  > div.carousel-arrows
+  > div.carousel-arrow {
+  border-radius: 0;
+  border: 2px solid red;
+}

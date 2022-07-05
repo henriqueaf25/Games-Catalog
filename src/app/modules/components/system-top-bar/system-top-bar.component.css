@@ -1,0 +1,52 @@
+.header-container {
+  background-color: #f94343;
+  width: 100%;
+  height: 7.5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+img.tindin-logo {
+  width: 10vw;
+  height: auto;
+  margin: 0.5rem 0 0.5rem 2rem;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input.search-bar {
+  border: 0;
+  border-radius: 2rem;
+  width: 35vw;
+  height: 5vh;
+  margin: 1.25vh 0 1.25vh 0;
+  padding-left: 1rem;
+}
+
+button.search-button {
+  position: relative;
+  z-index: 2;
+  border: 2px solid #fc4444;
+  border-radius: 1rem;
+  color: white;
+  background-color: black;
+  width: 6rem;
+  height: 1.8rem;
+  right: 6.2rem;
+  cursor: pointer;
+}
+
+div.login-circle {
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 1.6rem;
+  width: 1.6rem;
+  background-color: black;
+  color: white;
+  margin: 0.5rem 2rem 0 0.5rem;
+}
