@@ -1,0 +1,69 @@
+<header>
+  <system-top-bar [hasSearchBar]="true"></system-top-bar>
+  <breadcrumbs-component></breadcrumbs-component>
+</header>
+<body>
+  <main>
+    <div class="upper-section">
+      <aside class="game-photos" *ngIf="gameLoaded">
+        <img class="main-image" src="{{ mainPhoto }}" />
+        <carousel
+          *ngIf="loaded"
+          class="detail-carousel"
+          [dots]="false"
+          [images]="carouselImages"
+          [arrowsOutside]="true"
+          [height]="100"
+          [cellsToShow]="carouselImages.length >= 4 ? 4 : carouselImages.length"
+        ></carousel>
+      </aside>
+      <aside class="game-general-info" *ngIf="gameLoaded">
+        <section class="game-name">
+          <div class="rating">{{ selectedGame.rating }}</div>
+          <h2>{{ selectedGame.title }}</h2>
+        </section>
+        <div class="border"></div>
+        <section class="game-info">
+          <div *ngIf="selectedGame.genres">
+            <b>Genres: </b> {{ selectedGame.genres }}<br />
+          </div>
+          <div *ngIf="selectedGame.studio">
+            <b>Studio: </b> {{ selectedGame.studio }}<br />
+          </div>
+          <div *ngIf="selectedGame.productor">
+            <b>Productor: </b>{{ selectedGame.productor }}<br />
+          </div>
+          <div *ngIf="selectedGame.totalVotes">
+            <b>Total votes: </b>
+            {{ selectedGame.totalVotes }}<br />
+          </div>
+          <div *ngIf="selectedGame.company">
+            <b>Company: </b> {{ selectedGame.company }}<br />
+          </div>
+          <div *ngIf="selectedGame.platforms">
+            <b>Platforms: </b>
+            {{ selectedGame.platforms }}<br />
+          </div>
+          <div *ngIf="selectedGame.tags">
+            <b>Tags:</b> {{ selectedGame.tags }}<br />
+          </div>
+        </section>
+        <div class="border"></div>
+        <section class="price-vote">
+          <h3>Medium price {{ selectedGame.mediumPrice }}</h3>
+          <h5>Release year {{ selectedGame.releaseYear }}</h5>
+
+          <button>VOTE NOW</button>
+        </section>
+        <div class="border"></div>
+      </aside>
+    </div>
+    <div class="description">
+      Description
+      <div>{{ selectedGame.description }}</div>
+    </div>
+  </main>
+</body>
+<footer>
+  <system-footer></system-footer>
+</footer>

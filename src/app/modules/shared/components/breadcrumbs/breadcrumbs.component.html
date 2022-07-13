@@ -1,0 +1,15 @@
+<section id="breadcrumbs" class="breadcrumbs-content">
+  <div
+    class="clickable"
+    (click)="route.navigateByUrl(breadcrumbsService.applicationBaseUrl)"
+  >
+    <mat-icon>home</mat-icon> &nbsp;&nbsp;
+  </div>
+
+  <div
+    *ngFor="let crumb of breadcrumbsService?.breadCrumbsIndexes"
+    (click)="route.navigateByUrl(crumb.route)"
+  >
+    |&nbsp;&nbsp;&nbsp;{{ crumb?.description }}
+  </div>
+</section>

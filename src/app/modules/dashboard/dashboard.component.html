@@ -1,0 +1,39 @@
+<header>
+  <system-top-bar [hasSearchBar]="false"></system-top-bar>
+</header>
+<body>
+  <nav>
+    <div class="text">
+      <h2>Games</h2>
+      <div>Games manager portal</div>
+    </div>
+    <div class="search-buttn">
+      <input type="text" placeholder="Search from..." />
+      <button>NEW GAME</button>
+    </div>
+  </nav>
+  <main>
+    <section class="listed-games">
+      <div *ngFor="let game of gamesList">
+        <div class="games-container">
+          <a routerLink="/edit/{{ game._id }}">
+            <img
+              class="game-cover"
+              src="{{ game.photos[0]?.url || 'assets/images/no-cover.jpg' }}"
+            />
+          </a>
+          <aside>
+            <div class="game-title">{{ game.title }}</div>
+            <div *ngIf="game.mediumPrice; else freeToPlay" class="game-price">
+              ${{ game.mediumPrice }}
+            </div>
+            <ng-template #freeToPlay>
+              <label class="game-price">FREE</label>
+            </ng-template>
+            <div class="game-rating">{{ game.rating }}/10</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>

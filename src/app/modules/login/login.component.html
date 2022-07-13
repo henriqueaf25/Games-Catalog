@@ -1,1 +1,53 @@
-peste
+<header>
+  <system-top-bar [hasSearchBar]="true"></system-top-bar>
+</header>
+<body>
+  <main>
+    <header class="login-header">
+      <h2>SIGN IN</h2>
+      <h4>Insert your Account information</h4>
+    </header>
+    <div>
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline" class="email">
+          <input
+            matInput
+            formControlName="email"
+            type="text"
+            placeholder="Username or Email"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="password">
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+          />
+        </mat-form-field>
+      </form>
+    </div>
+    <footer class="login-footer">
+      <button
+        class="login-button"
+        [class.disabled]="form.invalid"
+        [disabled]="form.invalid"
+        (click)="login()"
+      >
+        Login your Account
+      </button>
+      <b
+        >No account?
+        <span
+          ><a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=fabio@tindin.com.br"
+            >Send email fabio@tindin.com.br</a
+          ></span
+        ></b
+      >
+    </footer>
+  </main>
+</body>
+<footer>
+  <system-footer></system-footer>
+</footer>

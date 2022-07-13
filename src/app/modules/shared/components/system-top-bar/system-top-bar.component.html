@@ -2,7 +2,7 @@
   <a routerLink="/">
     <img class="tindin-logo" src="assets/images/tindin-logo.png" />
   </a>
-  <div class="search-area">
+  <div *ngIf="hasSearchBar" class="search-area">
     <input type="text" placeholder="Search Game Here" class="search-bar" />
     <button (click)="searchGame()" class="search-button">SEARCH</button>
   </div>

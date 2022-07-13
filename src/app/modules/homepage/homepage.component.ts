@@ -1,8 +1,11 @@
-import { FeedbackService } from './../services/feedback.service';
-import { IGames } from './../interfaces/games.interface';
-import { HomePageService } from './service/homepage.service';
+import { CarouselService } from './../shared/services/carousel.service';
+import { ICarousel } from './../interfaces/carousel.interface';
+import { LoaderFeedbackService } from './../shared/services/loader.service';
+import { FeedbackService } from '../shared/services/feedback.service';
+import { IGame } from '../interfaces/game.interface';
+import { GamesService } from '../shared/services/games.service';
 import { Component, OnInit } from '@angular/core';
-import { Image } from 'angular-responsive-carousel';
+import { IGames } from '../interfaces/games.interface';
 
 @Component({
   selector: 'homepage-component',
@@ -10,17 +13,16 @@ import { Image } from 'angular-responsive-carousel';
   styleUrls: ['homepage.component.css'],
 })
 export class HomepageComponent implements OnInit {
-  carouselImages: Image[] = [
-    { path: 'assets/images/cover-fire.jpg', width: 1920, height: 1080 },
-    { path: 'assets/images/relicta-cover.jpeg', width: 1280, height: 720 },
-    { path: 'assets/images/evil-dead.jpg', width: 736, height: 414 },
-  ];
-
-  listedGames: IGames[];
+  highlightedGames: IGame[];
+  listedGames: IGame[];
+  carouselImages: ICarousel[] = [];
+  loaded: boolean = false;
 
   constructor(
-    private homepageService: HomePageService,
-    public feedbackService: FeedbackService
+    private gamesService: GamesService,
+    public feedbackService: FeedbackService,
+    private loaderservice: LoaderFeedbackService,
+    public carouselService: CarouselService
   ) {}
 
   ngOnInit(): void {
@@ -28,18 +30,48 @@ export class HomepageComponent implements OnInit {
   }
 
   loadGames(): void {
-    // add load
-    this.homepageService
+    this.loaderservice.addLoad('loadGames');
+    this.gamesService
       .listGames()
-      .then((res: IGames[]) => {
-        this.listedGames = res;
-        this.feedbackService.showSuccessFeedback();
+      .then((res: IGames) => {
+        this.listedGames = res.games;
+        console.log(this.listedGames);
+        this.highlightedGames = this.listedGames.filter(
+          (game) => game.highlight
+        );
+        this.carouselImages = this.carouselService.setCarouselImages(
+          this.highlightedGames
+        );
+        this.loaded = true;
       })
       .catch((err) => {
         this.feedbackService.showErrorFeedback(err);
       })
       .finally(() => {
-        //remove load
+        this.loaderservice.removeLoad('loadGames');
       });
   }
+
+  setCarouselImages(): void {
+    this.highlightedGames.forEach((game, index, array) => {
+      if (game.photos.length) {
+        this.carouselImages.push(
+          this.getImageDimension(game._id, array[index].photos[0].url)
+        );
+      }
+    });
+  }
+
+  getImageDimension(id: string, url: string): ICarousel {
+    let img = new Image();
+    img.src = url;
+    return {
+      _id: id,
+      path: img.src,
+      width: img.width,
+      height: img.height,
+    };
+  }
+
+  redirectToDetails(): void {}
 }

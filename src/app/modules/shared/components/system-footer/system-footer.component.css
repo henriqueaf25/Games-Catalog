@@ -1,0 +1,63 @@
+main {
+  padding: 1.5vh 0 1.5vh 0;
+  background-color: #333333;
+  height: 4vh;
+  width: 100%;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.social-media {
+  display: flex;
+}
+
+.github {
+  margin: 0.25vh 0 0 2vw;
+  line-height: 7vh;
+}
+
+a:visited,
+a:focus {
+  text-decoration: dashed;
+  color: white;
+}
+
+a:hover {
+  text-decoration: dashed;
+  color: white;
+  cursor: pointer;
+}
+
+img {
+  width: 1rem;
+  height: auto;
+  filter: invert(64%) sepia(85%) saturate(6442%) hue-rotate(333deg)
+    brightness(95%) contrast(108%) hue-rotate(0deg);
+  display: block;
+  margin: 0.6vh 0 0 0.7vh;
+}
+
+div.social-circle {
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 1.6rem;
+  width: 1.6rem;
+  background-color: #333333;
+  color: white;
+  display: block;
+  margin: 0.5rem 1rem 0 0.5rem;
+}
+
+@media screen and (max-height: 768px) {
+  main {
+    height: 6vh;
+  }
+}

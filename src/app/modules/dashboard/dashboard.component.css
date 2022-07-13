@@ -1,0 +1,49 @@
+nav {
+  padding-top: 12vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.text {
+  color: white;
+}
+
+section.listed-games > div > div > a > img {
+  width: 21.6vw;
+  height: 30vh;
+  cursor: pointer;
+  object-fit: fill;
+}
+.listed-games {
+  display: grid;
+  justify-content: space-around;
+  justify-items: center;
+  grid-template-columns: 20vw 20vw 20vw 20vw;
+  width: 90vw;
+  height: 50vh;
+  padding-bottom: 45rem;
+}
+
+section.listed-games > div > div.games-container {
+  max-width: 90vw;
+}
+
+aside {
+  color: white;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.game-rating {
+  border: 1px solid red;
+  border-radius: 2rem;
+  background-color: red;
+  width: 5vw;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.game-price {
+  font-weight: bold;
+}

@@ -1,0 +1,43 @@
+.breadcrumbs-content {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  color: white;
+}
+
+div {
+  cursor: pointer;
+}
+
+div.clickable {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+mat-icon {
+  font-size: 1.3rem;
+}
+
+.hide-breadcrumbs {
+  transition: all 0.3s linear;
+  visibility: hidden;
+}
+
+@media (max-width: calc(43rem - 1px)) {
+  .breadcrumbs-content {
+    padding: 5rem 7rem 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 43rem) {
+  .breadcrumbs-content {
+    padding: 5rem 7rem 1rem 6.5rem;
+  }
+}
+
+@media (min-width: 136em) {
+  .breadcrumbs-content {
+    max-width: inherit;
+  }
+}

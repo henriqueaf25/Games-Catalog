@@ -2,7 +2,7 @@
 html,
 body {
   height: 100%;
-  background-color: black;
+  background-color: #1a1a1a;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -14,4 +14,36 @@ homepage-component
   > div.carousel-arrow {
   border-radius: 0;
   border: 2px solid red;
+}
+
+game-details
+  > body
+  > main
+  > aside
+  > carousel.carousel
+  > div.carousel-arrows
+  > div.carousel-arrow {
+  border-radius: 0;
+}
+
+login-component
+  > body
+  > main
+  > div
+  > form
+  > mat-form-field
+  > div.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+login-component
+  > body
+  > main
+  > div
+  > form
+  > mat-form-field
+  > div.mat-form-field-wrapper
+  > div.mat-form-field-flex
+  > div.mat-form-field-infix {
+  width: inherit;
 }

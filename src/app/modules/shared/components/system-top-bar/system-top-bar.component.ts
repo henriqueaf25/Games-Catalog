@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['system-top-bar.component.css'],
 })
 export class SystemTopBarComponent {
-  @Input() hasSearchBar: boolean = true;
+  @Input() hasSearchBar: boolean;
 
   constructor() {}
 

@@ -1,0 +1,53 @@
+aside.game-photos {
+  float: left;
+  margin-left: 2vw;
+}
+
+aside.game-general-info {
+  float: right;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+div.upper-section {
+  display: flex;
+  flex-direction: row;
+}
+
+div.description {
+  color: white;
+}
+
+carousel {
+  width: 30vw;
+  margin-left: 5vw;
+}
+
+.main-image {
+  width: 40vw;
+  height: 40vh;
+}
+
+div.carousel-cell > img {
+  width: 10vw;
+}
+
+.border {
+  border-bottom: 1px solid white;
+}
+
+section.game-info,
+section.price-vote {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+section.game-name {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}

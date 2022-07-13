@@ -1,0 +1,83 @@
+main {
+  width: 40vw;
+  height: 70vh;
+  background-color: white;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  border-radius: 0.25rem;
+}
+
+.login-header {
+  padding-top: 5vh;
+  width: 40vw;
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+h4 {
+  color: rgba(0, 0, 0, 0.69);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 30vw;
+  height: 3vh;
+  padding-left: 0.5rem;
+}
+
+.login-footer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.login-button {
+  width: 32vw;
+  height: 6vh;
+  background-color: black;
+  color: white;
+  border-radius: 0.3rem;
+  box-shadow: 0;
+  border: 0;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: auto;
+  color: rgb(225 221 221 / 69%);
+}
+
+span {
+  font-weight: bolder;
+  color: black;
+  cursor: pointer;
+}
+
+b {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+a:visited,
+a:focus {
+  text-decoration: dashed;
+  color: black;
+}
+
+a:hover {
+  text-decoration: dashed;
+  color: black;
+  cursor: pointer;
+}

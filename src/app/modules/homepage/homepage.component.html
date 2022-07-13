@@ -1,18 +1,45 @@
-<div class="conatiner">
-  <system-top-bar></system-top-bar>
+<div class="container">
+  <system-top-bar [hasSearchBar]="true"></system-top-bar>
 </div>
 <body>
   <section>
     <carousel
+      *ngIf="loaded"
       class="carousel"
       [images]="carouselImages"
       [cellsToShow]="1"
-      [loop]="true"
-      [autoplay]="true"
+      [lightDOM]="true"
       [pauseOnHover]="true"
       [dots]="true"
       [cellWidth]="'100%'"
       [height]="500"
-    ></carousel>
+      (click)="redirectToDetails()"
+    >
+    </carousel>
+  </section>
+  <section class="listed-games">
+    <div *ngFor="let game of listedGames">
+      <div class="games-container">
+        <a routerLink="/details/{{ game._id }}">
+          <img
+            class="game-cover"
+            src="{{ game.photos[0]?.url || 'assets/images/no-cover.jpg' }}"
+          />
+        </a>
+        <aside>
+          <div class="game-title">{{ game.title }}</div>
+          <div *ngIf="game.mediumPrice; else freeToPlay" class="game-price">
+            ${{ game.mediumPrice }}
+          </div>
+          <ng-template #freeToPlay>
+            <label class="game-price">FREE</label>
+          </ng-template>
+          <div class="game-rating">{{ game.rating }}/10</div>
+        </aside>
+      </div>
+    </div>
   </section>
 </body>
+<footer>
+  <system-footer></system-footer>
+</footer>
